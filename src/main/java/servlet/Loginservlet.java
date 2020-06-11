@@ -35,14 +35,17 @@ public class Loginservlet extends HttpServlet {
             if (myResult.next()) {
                 final String User = myResult.getString("username");
              final    String Role = "patient";
-                        System.out.println("logged as"+myResult.getString( "email"));
+                        System.out.println("logged as : "+myResult.getString( "email"));
                 HttpSession session=req.getSession();
 
-                session.setAttribute("User",User);
-                session.setAttribute("Role",Role);
-                System.out.println("negatory");
+                session.setAttribute("user",User);
+                session.setAttribute("role",Role);
+
             }
 
+            myResult.close();
+            myPreparedStatement.close();
+            myConnection.close();
         } catch (Exception e) {
 req.setAttribute("error",e);
             req.getRequestDispatcher("/WEB-INF/deverror.jsp").forward(req,resp);
