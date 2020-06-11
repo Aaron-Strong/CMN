@@ -35,7 +35,7 @@ public class Loginservlet extends HttpServlet {
             if (myResult.next()) {
                 final String User = myResult.getString("username");
              final    String Role = "patient";
-                        System.out.println("logged as"+myResult.getString("email"));
+                        System.out.println("logged as"+myResult.getString( "email"));
                 HttpSession session=req.getSession();
 
                 session.setAttribute("User",User);
