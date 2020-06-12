@@ -19,7 +19,7 @@ public class Loginservlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-
+            System.out.println("[Login Servlet] : Received POST request, proceeding ....");
 
             Connection myConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pfa_medico?" +
                     "user=mehdi" + "&" +
@@ -32,10 +32,12 @@ public class Loginservlet extends HttpServlet {
             myPreparedStatement.setString(1,req.getParameter("login"));
             myPreparedStatement.setString(2,req.getParameter("password"));
             ResultSet myResult = myPreparedStatement.executeQuery();
+            System.out.println("[LoginServlet] : Retrieving ResultSet ...");
+
             if (myResult.next()) {
                 final String User = myResult.getString("username");
-             final    String Role = "patient";
-                        System.out.println("logged as : "+myResult.getString( "email"));
+                final String Role = "patient";
+                        System.out.println("[LoginServlet] : logged as -> "+myResult.getString( "email"));
                 HttpSession session=req.getSession();
 
                 session.setAttribute("user",User);
@@ -43,11 +45,13 @@ public class Loginservlet extends HttpServlet {
 
             }
 
+
             myResult.close();
             myPreparedStatement.close();
             myConnection.close();
         } catch (Exception e) {
-req.setAttribute("error",e);
+            System.out.printf("[LoginServlet] Error : ");
+            e.printStackTrace();
             req.getRequestDispatcher("/WEB-INF/deverror.jsp").forward(req,resp);
 
         }

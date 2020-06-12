@@ -3,8 +3,8 @@
   User: zidan
   Date: 07/06/2020
   Time: 00:45
-  To change this template use File | Settings | File Templates.
---%>
+  To change this template use File | Settings | File Templates.--%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,7 +13,7 @@
 <body>
 HELLO !
 
-<form action="" method="post">
+<form action="login" method="post">
 
     <label for="nomVaccin" > Nom Vaccin :</label>
     <input name="nomVaccin" id="nomVaccin">
