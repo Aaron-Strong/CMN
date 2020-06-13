@@ -1,6 +1,7 @@
 package servlet;
 
 import javax.naming.InitialContext;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,20 +10,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet("/")
+@WebServlet("/index")
 public class mainservlet extends HttpServlet {
 
-    @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.service(req, resp);
-
-    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-   //   req.getRequestDispatcher("/WEB-INF/index.jsp").forward(req,resp);
-        System.out.println("[MainServlet] : Redirected to form.jsp");
-        req.getRequestDispatcher("/WEB-INF/form.jsp").forward(req,resp);
+if(req.getAttribute(RequestDispatcher.FORWARD_REQUEST_URI) != null)
+{
+    System.out.println("[MainServlet] : Forwarded request leaving doGet ...");
+    return;
+}
+     req.getRequestDispatcher("/WEB-INF/index.jsp").forward(req,resp);
+        System.out.println("[MainServlet] : Redirected to index.jsp");
+     //   req.getRequestDispatcher("/WEB-INF/form.jsp").forward(req,resp);
 
     }
 
