@@ -35,12 +35,12 @@ public class Loginservlet extends HttpServlet {
             System.out.println("[LoginServlet] : Retrieving ResultSet ...");
 
             if (myResult.next()) {
-                final String User = myResult.getString("username");
+                final String Username = myResult.getString("username");
                 final String Role = "patient";
                         System.out.println("[LoginServlet] : logged as -> "+myResult.getString( "email"));
                 HttpSession session=req.getSession();
 
-                session.setAttribute("user",User);
+                session.setAttribute("username",Username);
                 session.setAttribute("role",Role);
 
             }

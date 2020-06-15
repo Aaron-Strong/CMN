@@ -38,8 +38,8 @@ return;
 
       if (isLogged && isLoginPage || isLogged && isLoginRequest) {
     System.out.println("[Login Filter] :  Connected with id :"+((HttpServletRequest) servletRequest).getSession().getId());
-           ((HttpServletRequest) servletRequest).getRequestDispatcher("/WEB-INF/index.jsp").forward((HttpServletRequest) servletRequest, (HttpServletResponse) servletResponse);
-           // ((HttpServletResponse) servletResponse).sendRedirect(((HttpServletRequest) servletRequest).getContextPath()+"/");
+          // ((HttpServletRequest) servletRequest).getRequestDispatcher("/WEB-INF/index.jsp").forward((HttpServletRequest) servletRequest, (HttpServletResponse) servletResponse);
+            ((HttpServletResponse) servletResponse).sendRedirect(((HttpServletRequest) servletRequest).getContextPath()+"/index");
 
         }
         else

@@ -105,7 +105,7 @@
                 <a class="dropdown-item" href="profile.html">My Profile</a>
                 <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
                 <a class="dropdown-item" href="settings.html">Settings</a>
-                <a class="dropdown-item" href="login.html">Logout</a>
+                <a class="dropdown-item" href="/login">Logout</a>
             </div>
         </li>
     </ul>
@@ -125,7 +125,7 @@
             <ul>
                 <li class="menu-title">Main</li>
                 <li>
-                    <a href="index-2.html"><i class="fa fa-dashboard"></i> <span>Acceuil</span></a>
+                    <a href="index"><i class="fa fa-dashboard"></i> <span>Acceuil</span></a>
                 </li>
                 <li>
                     <a href="doctors.html"><i class="fa fa-user-md"></i> <span>Historique Sante</span></a>
